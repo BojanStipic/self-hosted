@@ -25,4 +25,9 @@
     handle @pdf {
         reverse_proxy oauth2-proxy.proxy-stirling-pdf:4180
     }
+
+    @karakeep host karakeep.home.bojanstipic.com
+    handle @karakeep {
+        reverse_proxy karakeep:3000
+    }
 }

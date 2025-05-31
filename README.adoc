@@ -24,10 +24,12 @@ sudo docker network create --internal proxy-pocket-id
 sudo docker network create --internal proxy-excalidraw
 sudo docker network create --internal proxy-it-tools
 sudo docker network create --internal proxy-stirling-pdf
+sudo docker network create --internal proxy-karakeep
 sudo docker compose --project-directory pocket-id up --detach --force-recreate
 sudo docker compose --project-directory excalidraw up --detach --force-recreate
 sudo docker compose --project-directory it-tools up --detach --force-recreate
 sudo docker compose --project-directory stirling-pdf up --detach --force-recreate
+sudo docker compose --project-directory karakeep up --detach --force-recreate
 sudo docker compose --project-directory caddy up --detach --force-recreate
 ```
 

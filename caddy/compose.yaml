@@ -7,6 +7,8 @@ networks:
     external: true
   proxy-stirling-pdf:
     external: true
+  proxy-karakeep:
+    external: true
 
 volumes:
   data:
@@ -33,6 +35,9 @@ services:
         aliases:
           - 'auth.home.bojanstipic.com'
       proxy-stirling-pdf:
+        aliases:
+          - 'auth.home.bojanstipic.com'
+      proxy-karakeep:
         aliases:
           - 'auth.home.bojanstipic.com'
     ports:
