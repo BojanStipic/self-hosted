@@ -1,9 +1,6 @@
 *.home.bojanstipic.com {
     tls {
-        dns cloudflare {
-            zone_token {env.CF_ZONE_READ_TOKEN}
-            api_token {env.CF_DNS_EDIT_TOKEN}
-        }
+        dns cloudflare {env.CF_API_TOKEN}
     }
 
     @auth host auth.home.bojanstipic.com
