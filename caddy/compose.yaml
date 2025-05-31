@@ -1,0 +1,46 @@
+networks:
+  proxy-pocket-id:
+    external: true
+  proxy-excalidraw:
+    external: true
+  proxy-it-tools:
+    external: true
+  proxy-stirling-pdf:
+    external: true
+
+volumes:
+  data:
+
+configs:
+  config:
+    file: './Caddyfile'
+
+services:
+  caddy:
+    container_name: 'caddy'
+    build:
+      dockerfile: 'Dockerfile'
+      args:
+        VERSION: 2
+    restart: 'unless-stopped'
+    networks:
+      default: {}
+      proxy-pocket-id: {}
+      proxy-excalidraw:
+        aliases:
+          - 'auth.home.bojanstipic.com'
+      proxy-it-tools:
+        aliases:
+          - 'auth.home.bojanstipic.com'
+      proxy-stirling-pdf:
+        aliases:
+          - 'auth.home.bojanstipic.com'
+    ports:
+      - '192.168.1.2:443:443'
+      - '192.168.1.2:443:443/udp'
+    volumes:
+      - 'data:/data'
+    configs:
+      - source: 'config'
+        target: '/etc/caddy/Caddyfile'
+    env_file: '.env'

@@ -1,0 +1,28 @@
+*.home.bojanstipic.com {
+    tls {
+        dns cloudflare {
+            zone_token {env.CF_ZONE_READ_TOKEN}
+            api_token {env.CF_DNS_EDIT_TOKEN}
+        }
+    }
+
+    @auth host auth.home.bojanstipic.com
+    handle @auth {
+        reverse_proxy pocket-id:80
+    }
+
+    @excalidraw host excalidraw.home.bojanstipic.com
+    handle @excalidraw {
+        reverse_proxy oauth2-proxy.proxy-excalidraw:4180
+    }
+
+    @ittools host ittools.home.bojanstipic.com
+    handle @ittools {
+        reverse_proxy oauth2-proxy.proxy-it-tools:4180
+    }
+
+    @pdf host pdf.home.bojanstipic.com
+    handle @pdf {
+        reverse_proxy oauth2-proxy.proxy-stirling-pdf:4180
+    }
+}

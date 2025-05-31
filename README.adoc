@@ -1,0 +1,51 @@
+= self-hosted
+:toc:
+:toc-placement!:
+:sectanchors:
+:sectnums:
+ifndef::env-github[:icons: font]
+ifdef::env-github[]
+:status:
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
+
+Configs for self-hosted apps on my homelab.
+
+toc::[]
+
+== Usage
+
+```bash
+sudo docker network create --internal proxy-pocket-id
+sudo docker network create --internal proxy-excalidraw
+sudo docker network create --internal proxy-it-tools
+sudo docker network create --internal proxy-stirling-pdf
+sudo docker compose --project-directory pocket-id up --detach --force-recreate
+sudo docker compose --project-directory excalidraw up --detach --force-recreate
+sudo docker compose --project-directory it-tools up --detach --force-recreate
+sudo docker compose --project-directory stirling-pdf up --detach --force-recreate
+sudo docker compose --project-directory caddy up --detach --force-recreate
+```
+
+== License
+
+....
+Copyright (C) 2025 Bojan Stipic
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+....

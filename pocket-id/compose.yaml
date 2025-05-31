@@ -1,0 +1,20 @@
+networks:
+  proxy-pocket-id:
+    external: true
+
+volumes:
+  data:
+
+services:
+  pocket-id:
+    container_name: 'pocket-id'
+    image: 'ghcr.io/pocket-id/pocket-id:latest'
+    restart: 'unless-stopped'
+    networks:
+      - 'proxy-pocket-id'
+    volumes:
+      - 'data:/app/backend/data'
+    environment:
+      - 'PUBLIC_APP_URL=https://auth.home.bojanstipic.com'
+      - 'TRUST_PROXY=true'
+      - 'UPDATE_CHECK_DISABLED=true'
