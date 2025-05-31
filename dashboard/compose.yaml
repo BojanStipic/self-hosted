@@ -1,0 +1,40 @@
+networks:
+  internal:
+    internal: true
+  proxy-dashboard:
+    external: true
+
+volumes:
+  data:
+
+configs:
+  config:
+    file: './Caddyfile'
+  oauth2-proxy-config:
+    file: './oauth2-proxy.cfg'
+
+services:
+  dashboard:
+    container_name: 'dashboard'
+    image: 'caddy:2'
+    restart: 'unless-stopped'
+    networks:
+      - 'internal'
+    volumes:
+      - './www:/srv'
+      - 'data:/data'
+    configs:
+      - source: 'config'
+        target: '/etc/caddy/Caddyfile'
+
+  oauth2-proxy:
+    image: 'quay.io/oauth2-proxy/oauth2-proxy:latest'
+    command: --config /oauth2-proxy.cfg
+    restart: 'unless-stopped'
+    networks:
+      - 'internal'
+      - 'proxy-dashboard'
+    configs:
+      - source: 'oauth2-proxy-config'
+        target: '/oauth2-proxy.cfg'
+    env_file: '.env'

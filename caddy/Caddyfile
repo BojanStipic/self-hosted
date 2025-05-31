@@ -1,3 +1,11 @@
+home.bojanstipic.com {
+    tls {
+        dns cloudflare {env.CF_API_TOKEN}
+    }
+
+    reverse_proxy oauth2-proxy.proxy-dashboard:4180
+}
+
 *.home.bojanstipic.com {
     tls {
         dns cloudflare {env.CF_API_TOKEN}

@@ -1,6 +1,8 @@
 networks:
   proxy-pocket-id:
     external: true
+  proxy-dashboard:
+    external: true
   proxy-excalidraw:
     external: true
   proxy-it-tools:
@@ -28,6 +30,9 @@ services:
     networks:
       default: {}
       proxy-pocket-id: {}
+      proxy-dashboard:
+        aliases:
+          - 'auth.home.bojanstipic.com'
       proxy-excalidraw:
         aliases:
           - 'auth.home.bojanstipic.com'
