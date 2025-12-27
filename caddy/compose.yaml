@@ -1,15 +1,6 @@
 networks:
   proxy-pocket-id:
     external: true
-  proxy-dashboard:
-    external: true
-  proxy-excalidraw:
-    external: true
-  proxy-it-tools:
-    external: true
-  proxy-stirling-pdf:
-    external: true
-  proxy-karakeep:
     external: true
 
 volumes:
@@ -30,19 +21,6 @@ services:
     networks:
       default: {}
       proxy-pocket-id: {}
-      proxy-dashboard:
-        aliases:
-          - 'auth.home.bojanstipic.com'
-      proxy-excalidraw:
-        aliases:
-          - 'auth.home.bojanstipic.com'
-      proxy-it-tools:
-        aliases:
-          - 'auth.home.bojanstipic.com'
-      proxy-stirling-pdf:
-        aliases:
-          - 'auth.home.bojanstipic.com'
-      proxy-karakeep:
         aliases:
           - 'auth.home.bojanstipic.com'
     ports:

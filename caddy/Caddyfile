@@ -3,7 +3,7 @@ home.bojanstipic.com {
         dns cloudflare {env.CF_API_TOKEN}
     }
 
-    reverse_proxy oauth2-proxy.proxy-dashboard:4180
+    redir https://auth.home.bojanstipic.com
 }
 
 *.home.bojanstipic.com {
@@ -16,23 +16,5 @@ home.bojanstipic.com {
         reverse_proxy pocket-id:80
     }
 
-    @excalidraw host excalidraw.home.bojanstipic.com
-    handle @excalidraw {
-        reverse_proxy oauth2-proxy.proxy-excalidraw:4180
-    }
-
-    @ittools host ittools.home.bojanstipic.com
-    handle @ittools {
-        reverse_proxy oauth2-proxy.proxy-it-tools:4180
-    }
-
-    @pdf host pdf.home.bojanstipic.com
-    handle @pdf {
-        reverse_proxy oauth2-proxy.proxy-stirling-pdf:4180
-    }
-
-    @karakeep host karakeep.home.bojanstipic.com
-    handle @karakeep {
-        reverse_proxy karakeep:3000
     }
 }
