@@ -16,5 +16,8 @@ home.bojanstipic.com {
         reverse_proxy pocket-id:1411
     }
 
+    @immich host immich.home.bojanstipic.com
+    handle @immich {
+        reverse_proxy immich:2283
     }
 }

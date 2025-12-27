@@ -21,7 +21,9 @@ toc::[]
 
 ```bash
 sudo docker network create --internal proxy-pocket-id
+sudo docker network create --internal proxy-immich
 sudo docker compose --project-directory pocket-id up --detach --force-recreate
+sudo docker compose --project-directory immich up --detach --force-recreate
 sudo docker compose --project-directory caddy up --detach --force-recreate
 ```
 

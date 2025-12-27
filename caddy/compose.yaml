@@ -1,6 +1,7 @@
 networks:
   proxy-pocket-id:
     external: true
+  proxy-immich:
     external: true
 
 volumes:
@@ -21,6 +22,7 @@ services:
     networks:
       default: {}
       proxy-pocket-id: {}
+      proxy-immich:
         aliases:
           - 'auth.home.bojanstipic.com'
     ports:
