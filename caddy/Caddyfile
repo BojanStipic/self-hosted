@@ -13,7 +13,7 @@ home.bojanstipic.com {
 
     @auth host auth.home.bojanstipic.com
     handle @auth {
-        reverse_proxy pocket-id:80
+        reverse_proxy pocket-id:1411
     }
 
     }
