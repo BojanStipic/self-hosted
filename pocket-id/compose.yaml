@@ -8,7 +8,7 @@ volumes:
 services:
   pocket-id:
     container_name: 'pocket-id'
-    image: 'ghcr.io/pocket-id/pocket-id:v1'
+    image: 'ghcr.io/pocket-id/pocket-id:v2'
     restart: 'unless-stopped'
     networks:
       - 'proxy-pocket-id'
@@ -18,3 +18,4 @@ services:
       - 'APP_URL=https://auth.home.bojanstipic.com'
       - 'TRUST_PROXY=true'
       - 'ANALYTICS_DISABLED=true'
+    env_file: '.env'
